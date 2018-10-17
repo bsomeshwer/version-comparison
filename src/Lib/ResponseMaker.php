@@ -33,7 +33,7 @@ class ResponseMaker
             'status' => 'ERROR',
             'error_type' => 'validation',
             'message' => 'Unable to evaluate the expression!',
-            'error_message' => $err_msg,
+            'error_message' => $err_msg
         ], 422);
     }
 
@@ -49,7 +49,7 @@ class ResponseMaker
         return response([
             'status' => 'SUCCESS',
             'message' => 'Expression successfully evaluated!',
-            'result' => $result,
+            'result' => $result
         ], 200);
     }
 
