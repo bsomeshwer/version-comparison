@@ -49,7 +49,7 @@ class ResponseMaker
         return response([
             'status' => 'SUCCESS',
             'message' => 'Expression successfully evaluated!',
-            'error_message' => $result,
+            'result' => $result,
         ], 200);
     }
 
