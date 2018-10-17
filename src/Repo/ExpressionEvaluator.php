@@ -15,9 +15,9 @@ class ExpressionEvaluator
     /**
      * Constant error/exception messages
      */
-    const IN_APPROPRIATE_EXP__MSG = 'Something is inappropriate with the expression.';
-    const CHECK_AGAIN_MSG = 'Please check and submit the expression again.';
-    const CHECK_LOG_MSG = 'Please check log for more info.';
+    const IN_VALID_EXP_MSG = 'Invalid expression!';
+    const CHECK_AGAIN_MSG = 'Please check the expression and submit again.';
+    const CHECK_LOG_MSG = 'Check log for more information.';
 
     /**
      * Evaluates expression using expression language and
@@ -49,7 +49,8 @@ class ExpressionEvaluator
             $operand2 = trim($operands[1]);
             preg_match('/[>,<,<=,>=,==,!=,===,!==]{1,2}/', $expression, $matches);
             if (reset($matches) == false) {
-                $msg = self::IN_APPROPRIATE_EXP__MSG . ' ' . self::CHECK_AGAIN_MSG . ' ' . self::CHECK_LOG_MSG;
+                $msg = self::IN_VALID_EXP_MSG . ' ' . self::CHECK_AGAIN_MSG . ' ' . self::CHECK_LOG_MSG;
+                // Manually throwing exception
                 throw new \Exception($msg);
             }
             $operator = trim(reset($matches));
