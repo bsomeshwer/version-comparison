@@ -94,7 +94,6 @@ Hence the package can be used for version expressions evaluation.
     }
     
     2. Sample validation error response:
-    
     {
        status: "ERROR",
        error_type: "validation",
