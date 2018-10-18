@@ -77,6 +77,7 @@ Hence the package can be used for version expressions evaluation.
     
     Yo no need to manually inastall them in your project. They will be automaticall downloaded to your vendor folder when ever 
     you install "someshwer/version-comparison" package by executing the following command in terminal.
+    
     -> composer require someshwer/version-comparison
     
 # Response
