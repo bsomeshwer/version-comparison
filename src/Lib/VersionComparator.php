@@ -92,11 +92,11 @@ class VersionComparator
      * and returns result.
      *
      * @param string $version1
-     * @param string $version2
      * @param string $operator
+     * @param string $version2
      * @return ResponseMaker
      */
-    public function compare($version1 = null, $version2 = null, $operator = null)
+    public function compare($version1 = null, $operator = null, $version2 = null)
     {
         $version_validator = new VersionValidator();
         $version_validation = $version_validator->validateVersionNumber($version1, $version2);
