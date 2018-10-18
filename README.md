@@ -36,7 +36,7 @@ Hence the package can be used for version expressions evaluation.
   1. VersionComparator::compare(): 
   This method compares two version strings using specified operator and gives the Boolean result. It takes three parameters:
     
-    VersionComparator::compare(Version String, Operator, Version String); // compare(Version1, Operator, Version2);
+    VersionComparator::compare(Version1 String, Operator String, Version2 String); // compare(Version1, Operator, Version2);
     
     a. Version number (First Parameter)
     b. Operator (Second Parameter)
