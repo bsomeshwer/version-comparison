@@ -82,7 +82,7 @@ Hence the package can be used for version expressions evaluation.
     
 # Response
 
-  The resppnse content msut be json.
+  The resppnse content msut be json. The methods of this package almost always returns the resonse in JSON format.
    
     Example:
     
