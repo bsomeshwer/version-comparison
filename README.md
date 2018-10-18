@@ -43,7 +43,7 @@ Hence the package can be used for version expressions evaluation.
     c. Version number (Third Parameter)
     
     Ex: VersionComparator::compare('1.2.5', '>', '1.2.2'); // Gives the Boolean result either TRUE or FALSE. 
-    For this comparison result is TRUE.
+    For this above example comparison, the result is TRUE.
     
   2. VersionComparator::evaluate(): 
   This method usually evaluates version expression in the following form: 
