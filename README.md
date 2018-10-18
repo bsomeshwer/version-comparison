@@ -47,26 +47,26 @@ Hence the package can be used for version expressions evaluation.
     
   2. VersionComparator::evaluate(): 
   This method usually evaluates version expression in the following form: 
-  (('1.2' > '1.24.0') && ('1.2' < '1.25.1.0')) || ('1.2' == '1.26' || '1.2' == '1.27')
+  (("1.2" > "1.24.0") && ("1.2" < "1.25.1.0")) || ("1.2" == "1.26" || "1.2" == "1.27")
   It takes only one argument that is expression of the above type. 
  
-    VersionComparator::evaluate("Version Expression"); 
+    VersionComparator::evaluate('Version Expression'); 
     
-    Ex: VersionComparator::evaluate("(('1.2' > '1.24.0') && ('1.2' < '1.25.1.0')) || ('1.2' == '1.26' || '1.2' == '1.27')");
+    Ex: VersionComparator::evaluate('(("1.2" > "1.24.0") && ("1.2" < "1.25.1.0")) || ("1.2" == "1.26" || "1.2" == "1.27")');
     // Gives Boolean result either TRUE or FALSE
     
   3. VersionComparator::substituteThenEvaluate(): 
   This method usually evaluates version expressions of the following type:
-  (($v > '1.24.0') && ($v < '1.25.1.0')) || ($v == '1.26' || $v == '1.27')
+  (($v > "1.24.0") && ($v < "1.25.1.0")) || ($v == "1.26" || $v == "1.27")
   This method takes two parameters. They are: a. First one is the version number to be substituted in place of $v in the expression.
                                               And b. The second one is the expression to be evaluated after $v is substituted.
   
   Note: $v is the variable to be substituted with version number (First Parameter).
     
-    VersionComparator::substituteThenEvaluate("Version Number", "Version Expression");
+    VersionComparator::substituteThenEvaluate('Version Number', 'Version Expression');
     
-    Ex: VersionComparator::substituteThenEvaluate("2.1.4", "(($v > 1.24.0) && ($v < 1.25.1.0)) || ($v == 1.26 || $v == 1.27)");
-    Hence, in this example: $v in the expression is replaced by "2.1.4".
+    Ex: VersionComparator::substituteThenEvaluate('2.1.4', '((1.2 > 1.24.0) && (1.2 < 1.25.1.0)) || (1.2 == 1.26 || 1.2 == 1.27)');
+    Hence, in this example: $v in the expression is replaced by '2.1.4'.
     
     After successful evaluation it gives the Boolean result either TRUE or FLASE.
 --------------------
@@ -102,5 +102,27 @@ Hence the package can be used for version expressions evaluation.
     }
    
 Note: If you want, you can also customize the response to the format which ever you want.!
-  
+
+# Code snippet for testing:
+
+    Route::get('/test', function () {
+
+        $result_one = \VersionComparator::compare('1.2.8', '>', '1.2');
+   
+        $result_two = \VersionComparator::evaluate('((1.2.8 > 1.24.0) && (1.2.8 < 1.25.1.0)) || (1.2.8 == 1.26 || 1.2.8 == 1.27)');
+
+        $result_three = \VersionComparator::substituteThenEvaluate('1.2', '(($v > 1.24.0) && ($v < 1.25.1.0)) || ($v == 1.26 || $v ==           1.27)');
+
+        return compact('result_one', 'result_two', 'result_three');
+
+    });
+    
+If you want to test this package, copy and paste the above code in your web.php file and test this version-comparison/version-expression evaluation package.
+
+# Screenshot of code snippet:
+
+![alt Code Snippet Screen Shot](https://raw.githubusercontent.com/bsomeshwer/version-comparison/master/src/Repo/Code-Snippet(i).PNG)
+
+
+ 
   
