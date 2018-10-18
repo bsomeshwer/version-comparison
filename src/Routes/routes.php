@@ -16,8 +16,8 @@ Route::get('version-comparison/info', function () {
     return [
         'package_name' => 'Laravel - VersionComparison',
         'description' => preg_replace('/\s+/', ' ', trim($description)),
-        'latest_release' => '1.4.2',
-        'stable_version' => '1.4.2',
+        'latest_release' => '2.1.1',
+        'stable_version' => '2.1.1',
         'author' => 'Someshwer Bandapally <bsomeshwer89@gmail.com>',
     ];
 

@@ -2,12 +2,12 @@
 
 use Composer\Semver\Comparator;
 use Illuminate\Support\Facades\Log;
+use Someshwer\VersionComparison\Facades\ExpressionValidator;
+use Someshwer\VersionComparison\Lib\ResponseMaker;
+use Someshwer\VersionComparison\Repo\ExpressionEvaluator;
 use Someshwer\VersionComparison\Repo\Lexer;
 use Someshwer\VersionComparison\Repo\Parser;
-use Someshwer\VersionComparison\Lib\ResponseMaker;
 use Someshwer\VersionComparison\Repo\VersionValidator;
-use Someshwer\VersionComparison\Repo\ExpressionEvaluator;
-use Someshwer\VersionComparison\Facades\ExpressionValidator;
 
 /**
  * VersionComparator class
@@ -33,6 +33,27 @@ class VersionComparator
     public function __construct(ExpressionEvaluator $expression_evaluator)
     {
         $this->expression_evaluator = $expression_evaluator;
+    }
+
+    /**
+     * This method returns some useful information about the package.
+     *
+     * @return array
+     */
+    public function info()
+    {
+        $description = 'Laravel Version Comparison - This Laravel package compares two version strings
+            and gives the Boolean result. This package also resolves version expressions like
+            (($v > 1.24.0) && ($v < 1.25.1.0)) || ($v == 1.26 || $v == 1.27) where $v must be
+            substituted with the version number to be compared. Hence the package can be used
+            for version expressions evaluation.';
+        return [
+            'package_name' => 'Laravel - VersionComparison',
+            'description' => preg_replace('/\s+/', ' ', trim($description)),
+            'latest_release' => '2.1.1',
+            'stable_version' => '2.1.1',
+            'author' => 'Someshwer Bandapally <bsomeshwer89@gmail.com>',
+        ];
     }
 
     /**
