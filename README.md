@@ -103,7 +103,7 @@ Hence the package can be used for version expressions evaluation.
        status: "ERROR",
        error_type: "validation",
        message: "Unable to evaluate the expression!",
-       error_message: "Invalid expression! Unexpected ")" around position 44 for expression `(('1.2' > '1.24.0')) && ('1.2' <                  '1.25.1.0')) || ('1.2' == '1.26' || '1.2' == '1.27')`. Check log for more info.",
+       error_message: "Invalid expression! Unexpected ")" around position 44 for expression `(('1.2' > '1.24.0')) && ('1.2' < '1.25.1.0')) || ('1.2' == '1.26' || '1.2' == '1.27')`. Check log for more info.",
     }
    
 Note: If you want, you can also customize the response to the format which ever you want.!
@@ -112,13 +112,17 @@ Note: If you want, you can also customize the response to the format which ever 
 
     Route::get('/test', function () {
 
-        $result_one = \VersionComparator::compare('1.2.8', '>', '1.2');
-   
-        $result_two = \VersionComparator::evaluate('((1.2.8 > 1.24.0) && (1.2.8 < 1.25.1.0)) || (1.2.8 == 1.26 || 1.2.8 == 1.27)');
+         $result_one = \VersionComparator::compare('1.2.8', '>', '1.2');
 
-        $result_three = \VersionComparator::substituteThenEvaluate('1.2', '(($v > 1.24.0) && ($v < 1.25.1.0)) || ($v == 1.26 || $v ==           1.27)');
+         $result_two = \VersionComparator::evaluate('((1.2.8 > 1.24.0) && (1.2.8 < 1.25.1.0)) || (1.2.8 == 1.26 || 1.2.8 == 1.27)');
 
-        return compact('result_one', 'result_two', 'result_three');
+         $result_three = \VersionComparator::substituteThenEvaluate('1.2', '(($v > 1.24.0) && ($v < 1.25.1.0)) || ($v == 1.26 || $v == 1.27)');
+
+         // return compact('result_one', 'result_two', 'result_three');
+
+         // return $result_one;
+         // return $result_two;
+         return $result_three;
 
     });
     
@@ -129,5 +133,3 @@ If you want to test this package, copy and paste the above code in your web.php 
 ![alt Code Snippet Screen Shot](https://raw.githubusercontent.com/bsomeshwer/version-comparison/master/src/Repo/Code-Snippet(i).PNG)
 
 
- 
-  
